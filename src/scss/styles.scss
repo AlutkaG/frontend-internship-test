@@ -1,2 +1,116 @@
 // Here goes your CSS
-@import 'layout/main';
+@import "layout/main";
+
+.popup {
+	display: none;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	justify-content: center;
+	align-items: center;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	overflow: auto;
+}
+.popup-inner {
+	background-color: white;
+	width: 300px;
+	height: 320px;
+	border-radius: 5px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-bottom: 35px;
+	position: relative;
+}
+
+input[type="text"],
+input[type="password"] {
+	border: 1px solid black;
+	padding: 15px;
+	margin-bottom: 20px;
+}
+
+input[type="submit"] {
+	width: 100%;
+	background-color: black;
+	color: white;
+	border-style: none;
+	height: 45px;
+	margin-top: 25px;
+
+	&:hover {
+		background-color: #fc888e;
+	}
+}
+
+.checkbox-container {
+	display: inline-block;
+	position: relative;
+	user-select: none;
+
+	& input {
+		opacity: 0;
+	}
+
+	&:hover input ~ .checkbox {
+		transform: scale(1.1);
+	}
+
+	& input:checked ~ .checkbox {
+		color: black;
+	}
+
+	& input:checked ~ .checkbox::after {
+		display: block;
+	}
+
+	& .checkbox::after {
+		left: 5px;
+		width: 5px;
+		height: 10px;
+		border-style: solid;
+		border-width: 0 3px 3px 0;
+		transform: rotate(45deg);
+	}
+}
+
+.checkbox {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 15px;
+	width: 15px;
+	margin-right: 10px;
+	border: 1px solid black;
+	cursor: pointer;
+
+	&:after {
+		content: "";
+		position: absolute;
+		display: none;
+	}
+}
+
+.title-login {
+	font-family: "Lobster", cursive;
+	font-size: 30px;
+}
+
+.close-btn {
+	position: absolute;
+	float: right;
+	width: 30px;
+	height: 30px;
+	background-color: black;
+	border-radius: 100%;
+	border-style: none;
+	color: white;
+	font-weight: bolder;
+	font-size: 20px;
+	top: -10px;
+	right: -10px;
+	outline: none;
+	cursor: pointer;
+}
